@@ -1,6 +1,6 @@
 {
   "name": "plz-ort",
-  "version": "1.0-2018.01",
+  "version": "1.0.2018-01",
   "description": "Get Ort (City/Locality) associated with Austrian ZIP code \"Postleitzahl\" (PLZ).",
   "main": "index.js",
   "author": "Albert Zak",
