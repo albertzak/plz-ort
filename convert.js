@@ -1,6 +1,7 @@
 const fs = require('fs')
 const XLSX = require('xlsx')
 const fetch = require('node-fetch')
+const { execSync } = require('child_process')
 
 const main = async () => {
   try {
@@ -122,6 +123,9 @@ const write = data => {
 }
 
 const publish = version => {
+  execSync('git add .')
+  execSync(`git commit -m ${version}`)
+  execSync(`npm version 1.${version}`)
   console.log('Published to npm as', version)
 }
 
