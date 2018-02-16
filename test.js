@@ -2,7 +2,7 @@ const ort = require('./index.js')
 
 var assertEqual = function (test, expected) {
   if (test === expected) {
-    process.stdout.write('.')
+    console.log('.')
   } else {
     throw new Error('Expected ' + test + ' to equal ' + expected)
   }
