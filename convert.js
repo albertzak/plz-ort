@@ -128,7 +128,10 @@ const publish = version => {
 
   try {
     execSync(`npm version 1.${version}`)
-  } catch (e) {}
+    execSync(`npm publish`)
+  } catch (e) {
+    console.log('\nIgnore the above error (if any)')
+  }
 
   console.log('Published to npm as', version)
 }
