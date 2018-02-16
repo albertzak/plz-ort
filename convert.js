@@ -3,6 +3,8 @@ const XLSX = require('xlsx')
 const fetch = require('node-fetch')
 const { execSync } = require('child_process')
 
+const MAJOR_VERSION = 1
+
 const main = async () => {
   try {
     const { filename, date } = await download()
@@ -122,14 +124,16 @@ const write = data => {
   })
 }
 
-const publish = version => {
+const publish = date => {
   execSync('yarn test')
+
+  const version = [MAJOR_VERSION, date].join('.')
 
   execSync('git add .')
   execSync(`git commit -m ${version}`)
 
   try {
-    execSync(`npm version 1.${version}`)
+    execSync(`npm version ${version}`)
     execSync(`npm publish`)
   } catch (e) {
     console.log('\nIgnore the above error (if any)')
