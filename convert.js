@@ -123,6 +123,8 @@ const write = data => {
 }
 
 const publish = version => {
+  execSync('yarn test')
+
   execSync('git add .')
   execSync(`git commit -m ${version}`)
 
