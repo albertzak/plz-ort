@@ -125,7 +125,11 @@ const write = data => {
 const publish = version => {
   execSync('git add .')
   execSync(`git commit -m ${version}`)
-  execSync(`npm version 1.${version}`)
+
+  try {
+    execSync(`npm version 1.${version}`)
+  } catch (e) {}
+
   console.log('Published to npm as', version)
 }
 
